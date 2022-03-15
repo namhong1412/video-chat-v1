@@ -5,8 +5,10 @@ const { v4: uuidv4 } = require("uuid");
 app.set("view engine", "ejs");
 const io = require("socket.io")(server, {
   cors: {
-    origin: '*'
-  }
+        origin: '*'
+    },
+    allowEIO3: true,
+    transports: ['websocket']
 });
 const { ExpressPeerServer } = require("peer");
 const peerServer = ExpressPeerServer(server, {
